@@ -5,27 +5,26 @@
  * Purpose: Converts space separated binary to text
  */
 
-#include <bits/stdc++.h>
+#include <fstream>
+#include <string>
 using namespace std;
 
-typedef long long ll;
-typedef long double triple;
-
 int main() {
-    ios::sync_with_stdio(false);
     //Declare variables
     string str;
+    fstream in("input.txt", ios::in), out("output.txt", ios::out);
     
-    getline(cin, str);
-    stringstream ss(str);
-    
-    while(ss >> str) {
+    //Read in space separated binary numbers, convert, and output to file
+    while(in>>str) {
         char c = 0;
-        for(int i = str.size() - 1; i >= 0; --i)
-            c |= (str[i] - '0') << (str.size() - i - 1);
-        cout<<c;
+        for(int i = str.size() - 1; i >= 0; --i) c |= (str[i] - '0') << (str.size() - i - 1);
+        out<<c;
     }
 
+    //Close files
+    in.close();
+    out.close();
+    
     //A Sebastian Production
     return 0;
 }
