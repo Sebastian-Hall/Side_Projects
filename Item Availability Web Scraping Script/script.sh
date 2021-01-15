@@ -25,7 +25,7 @@ wget -q -T 30 -O $bb_file $bb_link # For some reason it takes about 10 seconds t
 wget -q -T 30 -O $wal_file -U "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.79 Safari/537.36" $wal_link
 
 
-# Parse files
+# Parse files for unique identifier of being out of stock
 amz=$(grep "Currently unavailable" $amz_file)
 bb=$(grep "btn-disabled" $bb_file)
 wal=$(grep -o "<b>Out of stock</b>" $wal_file)
